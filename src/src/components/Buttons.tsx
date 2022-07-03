@@ -6,6 +6,7 @@ interface IButtonsProps {
   callApi: () => void;
   renewToken: () => void;
   logout: () => void;
+  getSiteLogo: () => void;
 }
 
 const Buttons: React.SFC<IButtonsProps> = props => {
@@ -23,6 +24,9 @@ const Buttons: React.SFC<IButtonsProps> = props => {
         </button>
         <button className="btn btn-success btn-renewtoken" style={{ margin: '10px' }} onClick={props.renewToken}>
           Renew Token
+        </button>
+        <button className="btn btn-info btn-lgo" style={{ margin: '10px' }} onClick={props.getSiteLogo}>
+          Site Logo
         </button>
         <button className="btn btn-dark btn-logout" style={{ margin: '10px' }} onClick={props.logout}>
           Logout

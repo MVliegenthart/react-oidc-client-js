@@ -41,6 +41,18 @@ export default class AppContent extends React.Component<any, any> {
       });
   };
 
+  public getSiteLogo = () => {
+    this.apiService
+      .getSiteImage()
+      .then(data => {
+        //this.setState({ api: data.data });
+        toast.success('Api return successfully data, check in section - Api response');
+      })
+      .catch(error => {
+        toast.error(error);
+      });
+  };
+
   public componentWillUnmount() {
     this.shouldCancel = true;
   }
@@ -86,6 +98,7 @@ export default class AppContent extends React.Component<any, any> {
           renewToken={this.renewToken}
           getUser={this.getUser}
           callApi={this.callApi}
+          getSiteLogo={this.getSiteLogo}
         />
 
         <AuthContent api={this.state.api} user={this.state.user} />

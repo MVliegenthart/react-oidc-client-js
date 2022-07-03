@@ -36,6 +36,38 @@ export class ApiService {
       Authorization: 'Bearer ' + token
     };
 
-    return axios.get(Constants.apiRoot + 'test', { headers });
+    return axios.get(Constants.apiRoot, { headers });
+  }
+
+  public getSiteImage() {
+    
+       return this.authService.getUser().then(user => {
+      if (user && user.access_token) {
+        const headers = {
+          Accept: 'application/json',
+          Authorization: 'Bearer ' +  user.access_token
+        };
+        return axios.get(Constants.siteImage, { headers }).catch(error => {
+          if (error.response.status === 401) {
+            return this.authService.renewToken().then(renewedUser => {
+              return axios.get(Constants.siteImage, { headers });
+            });
+          }
+          throw error;
+        });
+      } else if (user) {
+        
+        return this.authService.renewToken().then(renewedUser => {
+          const headers = {
+            Accept: 'application/json',
+            Authorization: 'Bearer ' +  renewedUser.access_token
+          };
+
+          return axios.get(Constants.siteImage, { headers })
+        });
+      } else {
+        throw new Error('user is not logged in');
+      }
+    });
   }
 }
