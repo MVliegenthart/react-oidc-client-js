@@ -7,6 +7,7 @@ interface IButtonsProps {
   renewToken: () => void;
   logout: () => void;
   getSiteLogo: () => void;
+  revAuth: () => void;
 }
 
 const Buttons: React.SFC<IButtonsProps> = props => {
@@ -16,17 +17,17 @@ const Buttons: React.SFC<IButtonsProps> = props => {
         <button className="btn btn-primary btn-login" style={{ margin: '10px' }} onClick={props.login}>
           Login
         </button>
-        <button className="btn btn-secondary btn-getuser" style={{ margin: '10px' }} onClick={props.getUser}>
+        <button className="btn btn-secondary btn-getuser" hidden={true} style={{ margin: '10px' }} onClick={props.getUser}>
           Get User info
         </button>
+        <button className="btn btn-info btn-getuser" style={{ margin: '10px' }} onClick={props.revAuth}>
+          Authenticate in Revelation (JWT)
+        </button>
         <button className="btn btn-warning btn-getapi" style={{ margin: '10px' }} onClick={props.callApi}>
-          Call API
+          Get User Profile from API
         </button>
         <button className="btn btn-success btn-renewtoken" style={{ margin: '10px' }} onClick={props.renewToken}>
           Renew Token
-        </button>
-        <button className="btn btn-info btn-lgo" style={{ margin: '10px' }} onClick={props.getSiteLogo}>
-          Site Logo
         </button>
         <button className="btn btn-dark btn-logout" style={{ margin: '10px' }} onClick={props.logout}>
           Logout
