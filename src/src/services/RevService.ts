@@ -7,7 +7,8 @@ export class RevService {
     private authService: AuthService;
 
   constructor() {
-    axios.defaults.withCredentials = true;
+    //Only required for cross-domain cookies which we are not doing right now.
+    //axios.defaults.withCredentials = true;
     this.authService = new AuthService();
   }
   

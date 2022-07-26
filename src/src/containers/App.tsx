@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import Nav from '../components/Nav';
 import logo from '../logo.svg';
 import './App.css';
+import '@progress/kendo-theme-default/dist/all.css';
 
 class App extends React.Component {
   public render() {

@@ -10,6 +10,7 @@ export default class Nav extends React.Component{
                 <Container>
                     <Navbar.Brand href="./auth">Authentication</Navbar.Brand>
                     <Navbar.Brand href="./revhome">Revelation</Navbar.Brand>
+                    <Navbar.Brand href="./revsearch">Quick Search</Navbar.Brand>
                 </Container>
             </Navbar>
         )

@@ -42,7 +42,8 @@ export default class AppContent extends React.Component<any, any> {
         toast.success('Api return successfully data, check in section - Api response');
       })
       .catch(error => {
-        toast.error(error);
+        //console.log('ooof', JSON.stringify(error));
+        toast.error(error.message);
       });
   };
 
